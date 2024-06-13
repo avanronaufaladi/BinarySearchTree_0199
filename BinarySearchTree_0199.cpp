@@ -81,3 +81,91 @@ public:
 
 		}
 	}
+	void preorder(Node* ptr)
+	{
+		if (root == nullptr)
+		{
+			cout << "tree is empty" << endl;
+			return;
+		}
+		if (ptr != nullptr)
+		{
+			cout << ptr->info << " ";
+			preorder(ptr->leftchild);
+			preorder(ptr->rightchild);
+
+		}
+	}
+	void postorder(Node* ptr)
+	{
+		//performs the postorder traversal of the tree
+		if (root == nullptr)
+		{
+			cout << "tree is empty" << endl;
+			return;
+		}
+		if (ptr != nullptr)
+		{
+
+			postorder(ptr->leftchild);
+			postorder(ptr->rightchild);
+			cout << ptr->info << " ";
+		}
+	}
+};
+
+int main()
+{
+	binnarytree x;
+	while (true)
+	{
+		cout << "\nMenu" << endl;
+		cout << "1. Implement insert operation" << endl;
+		cout << "2. Perform inorder traversal" << endl;
+		cout << "3. perform preorder traversal" << endl;
+		cout << "4. perform postorder traversal" << endl;
+		cout << "5. exit" << endl;
+		cout << "\nEnter your choice (1-5) : ";
+
+		char ch;
+		cin >> ch;
+		cout << endl;
+
+		switch (ch)
+		{
+		case '1':
+		{
+			cout << "Enter a word: ";
+			string word;
+			cin >> word;
+			x.insert(word);
+			break;
+		}
+		case '2':
+		{
+			x.inorder(x.root);
+			break;
+		}
+		case '3':
+		{
+			x.preorder(x.root);
+			break;
+		}
+		case '4':
+		{
+			x.postorder(x.root);
+			break;
+		}
+		case '5':
+		{
+			return 0;
+		}
+		default:
+		{
+			cout << "invalid option " << endl;
+
+			break;
+		}
+		}
+	}
+}
