@@ -27,4 +27,7 @@ public:
 	{
 		root = nullptr; //initializing root to null
 	}
-	
+	void insert(string element) //insert a node in the binary search tree
+	{
+		Node* newNode = new Node(element, nullptr, nullptr); //allocate memory for the new node
+		
